@@ -1,11 +1,11 @@
 {
-  "name": "eval-math",
+  "name": "eval-math-expression",
   "description": "Evaluate math expressions from String",
   "version": "0.0.1",
   "keywords": [
     "eval",
     "evalexpression",
-    "eval-math",
+    "eval-math-expression",
     "big",
     "evalcalculate"
   ],
