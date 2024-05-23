@@ -1,0 +1,57 @@
+{
+  "name": "eval-expression",
+  "description": "A tool to calculate string expression",
+  "version": "0.0.1",
+  "keywords": [
+    "eval",
+    "evalexpression",
+    "eval-expression",
+    "big",
+    "evalcalculate"
+  ],
+  "exports": {
+    ".": {
+      "import": "./evalexpression.mjs",
+      "require": "./evalexpression.js"
+    },
+    "./evalexpression.mjs": "./evalexpression.mjs",
+    "./evalexpression.js": "./evalexpression.js",
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MikeMcl/evalexpression.js.git"
+  },
+  "main": "evalexpression",
+  "browser": "evalexpression.js",
+  "module": "evalexpression.mjs",
+  "author": {
+    "name": "underway",
+    "email": "646644017@qq.com"
+  },
+  "bugs": {
+    "url": "https://github.com/MikeMcl/evalexpression.js/issues"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./index.test.js"
+  },
+  "files": [
+    "evalexpression.js",
+    "evalexpression.mjs"
+  ],
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/bigjs"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0"
+  },
+  "dependencies": {
+    "big.js": "^6.2.1"
+  }
+}
