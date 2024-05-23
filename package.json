@@ -11,26 +11,26 @@
   ],
   "exports": {
     ".": {
-      "import": "./evalexpression.mjs",
-      "require": "./evalexpression.js"
+      "import": "./index.mjs",
+      "require": "./index.js"
     },
-    "./evalexpression.mjs": "./evalexpression.mjs",
-    "./evalexpression.js": "./evalexpression.js",
+    "./index.mjs": "./index.mjs",
+    "./index.js": "./index.js",
     "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MikeMcl/evalexpression.js.git"
+    "url": "https://github.com/underway2014/eval-expression.git"
   },
   "main": "evalexpression",
-  "browser": "evalexpression.js",
-  "module": "evalexpression.mjs",
+  "browser": "index.js",
+  "module": "index.mjs",
   "author": {
     "name": "underway",
     "email": "646644017@qq.com"
   },
   "bugs": {
-    "url": "https://github.com/MikeMcl/evalexpression.js/issues"
+    "url": "https://github.com/underway2014/eval-expression/issues"
   },
   "engines": {
     "node": "*"
@@ -40,17 +40,10 @@
     "test": "node ./index.test.js"
   },
   "files": [
-    "evalexpression.js",
-    "evalexpression.mjs"
+    "index.js",
+    "index.mjs"
   ],
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/bigjs"
-  },
-  "devDependencies": {
-    "chai": "^5.1.1",
-    "mocha": "^10.4.0"
-  },
+  "devDependencies": { },
   "dependencies": {
     "big.js": "^6.2.1"
   }
