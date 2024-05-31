@@ -9,22 +9,12 @@
     "big",
     "evalcalculate"
   ],
-  "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    },
-    "./index.mjs": "./index.mjs",
-    "./index.js": "./index.js",
-    "./package.json": "./package.json"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/underway2014/eval-expression.git"
   },
-  "main": "index.js",
-  "browser": "index.js",
-  "module": "index.mjs",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": {
     "name": "underway",
     "email": "646644017@qq.com"
@@ -37,13 +27,22 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "node ./index.test.js"
+    "build": "tsc",
+    "test": "mocha"
   },
   "files": [
-    "index.js",
-    "index.mjs"
+    "lib"
   ],
-  "devDependencies": { },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/sinon": "^10.0.15",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
   "dependencies": {
     "big.js": "^6.2.1"
   }

@@ -1,34 +1,37 @@
-const Big = require('big.js');
+import * as Big from  'big.js'
 
-const operatorPriority = new Map([
-  ['+', 0],
-  ['-', 0],
-  ['*', 1],
-  ['/', 1]
-])
+const operatorPriority =  {
+    '+': 0,
+    '-': 0,
+    '*': 1,
+    '/': 1
+}
 
-const operations = new Map([
-  ['+', add],
-  ['-', minus],
-  ['*', times],
-  ['/', div]
-])
+const operations = {
+    '+': add,
+    '-': minus,
+    '*': times,
+    '/': div
+}
+
+type Opkey = keyof typeof  operatorPriority
+type Okey = keyof typeof  operations
 
 function add(x, y) {
-  return   Big(x).add(y)
+  return Big(x).add(y)
 }
 function minus(x, y) {
-  return new Big(x).minus(y)
+  return Big(x).minus(y)
 }
 function times(x, y) {
-  return new Big(x).times(y)
+  return Big(x).times(y)
 }
 
 function div(x, y) {
-  return new Big(x).div(y)
+  return Big(x).div(y)
 }
 
-function evalExpression(expression) {
+const evalExpression = function(expression) {
   expression = expression.replace(/\s+/g, '')
 
    const result = evalAtomExpression(expression)
@@ -48,15 +51,19 @@ function evalAtomExpression(expression) {
   return evalAtomExpression(expression)
 }
 
-function parse (expression) {
-  const valueStack = [],
-    operatorStack = []
+function parse (expression: string) {
+  const valueStack: any[] = [],
+    operatorStack: any[] = []
 
   let isVal = true
   for (let i = 0; i < expression.length; ) {
     let element
     if (isVal) {
-      element = expression.match(/(\+|-){0,1}\d*\.?\d*/)[0]
+      const matchElements = expression.match(/(\+|-){0,1}\d*\.?\d*/)
+      if(!matchElements) {
+        throw Error(`expression error: ${expression}`)
+      }
+      element = matchElements[0]
       valueStack.push(element)
     } else {
       element = expression[0]
@@ -82,7 +89,7 @@ function parse (expression) {
 function calculate(old, valueStack) {
   let behind = +valueStack.pop()
   let front = +valueStack.pop()
-  let result = operations.get(old)(front, behind)
+  let result = operations[old](front, behind)
   valueStack.push(result)
 }
 
@@ -93,7 +100,7 @@ function check(newOperation, operatorStack, valueStack) {
     return operatorStack.push(newOperation)
   }
 
-  if (operatorPriority.get(old) >= operatorPriority.get(newOperation)) {
+  if (operatorPriority[old] >= operatorPriority[newOperation]) {
     calculate(old, valueStack)
     check(newOperation, operatorStack, valueStack)
   } else {
@@ -103,4 +110,4 @@ function check(newOperation, operatorStack, valueStack) {
 }
 
 
-exports = module.exports = evalExpression
+export default evalExpression
