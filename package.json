@@ -1,7 +1,7 @@
 {
   "name": "eval-math-expression",
   "description": "Evaluate math expressions from String",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "keywords": [
     "eval",
     "evalexpression",
