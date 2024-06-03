@@ -14,15 +14,16 @@ const operations = {
     '/': div
 }
 
-type Opkey = keyof typeof  operatorPriority
 type Okey = keyof typeof  operations
 
 function add(x, y) {
   return Big(x).add(y)
 }
+
 function minus(x, y) {
   return Big(x).minus(y)
 }
+
 function times(x, y) {
   return Big(x).times(y)
 }
@@ -86,7 +87,7 @@ function parse (expression: string) {
   return valueStack.pop()
 }
 
-function calculate(old, valueStack) {
+function calculate(old: Okey, valueStack) {
   let behind = +valueStack.pop()
   let front = +valueStack.pop()
   let result = operations[old](front, behind)
